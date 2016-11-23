@@ -1,0 +1,111 @@
+$baseWidth:640;
+@function px($val){
+    @return $val/$baseWidth*10+rem;
+}
+.list_head{
+    height:px(86);
+    background:#E4366B;
+    text-align:center;
+    font-size:px(40);
+    color:#fff;
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    z-index:100;
+    z-index:5;
+    span{
+        display:inline-block;
+    }
+    .en{
+        width:px(96);
+        height:px(28);
+        background:url(../imgs/logo.png) no-repeat;
+        background-size:px(96) px(28);
+        margin-top:px(34);
+    }
+    .zh{
+        font:bold px(40)/px(86) "";
+        width:px(170);
+        height:px(86);
+    }
+    .back{
+        width:px(72);
+        text-align:right;
+        height:px(86);
+        display:block;
+        position:absolute;
+        background:url(../imgs/back.png) no-repeat px(20) center;
+        background-size:px(52) px(32);
+    }
+}
+.list_nav{
+    height:px(86);
+    width:100%;
+    background:#52525A;
+    border-top:1px solid #282828;
+    border-bottom:1px solid #282828;
+    text-align:center;
+    margin-top:px(86);
+    position:fixed;
+    top:0;left:0;
+    z-index:5;
+    &:before,&:after{
+        content:"";
+        display:block;
+        width:100%;
+        height:1px;
+        background:#636363;
+    }
+    input{
+        width:px(590);
+        height:px(50);
+        background:#fff url(../imgs/search.png) no-repeat px(24) center;
+        background-size:px(36) px(40);
+        padding:0 px(24);
+        text-indent:px(48);
+        box-sizing:border-box;
+        border:0;
+        border-radius:px(25);
+        vertical-align:middle;
+        font:px(24)/px(50) "";
+        color:#949398;
+    }
+    span{
+        position:absolute;
+        width:px(36);
+        height:px(40);
+        left:px(50);
+        top:px(24);
+    }
+}
+.list_main{
+    color:#000;
+    font:bold px(38)/px(86) "";
+    margin-top:px(176);
+    p.parent{
+        text-indent:px(20);
+        box-shadow:0 1px 1px #AAAAAA,0 1px 1px #CBCBCB;  
+    }
+    img{
+        float:right;
+        width:px(28);
+        height:px(23);
+        margin-right:px(30);
+        margin-top:px(36);
+    }
+    ul.type{
+        overflow:hidden;
+        li{
+            width:100%;
+            height:px(86);
+            text-indent:px(40);
+            box-shadow:0 1px 1px #AAAAAA,0 1px 1px #CBCBCB;
+            img{
+                transform:rotate(-90deg);
+            }
+        }
+        &.active{
+            height:px(0);
+        }
+    }
+}

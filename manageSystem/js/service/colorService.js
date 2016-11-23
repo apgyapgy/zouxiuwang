@@ -1,0 +1,75 @@
+define(['main'],function(app){
+	app.factory("colorService",function($http,$q){
+		var colorService = {};
+		var baseUrl = 'http://demoapptest.duapp.com';
+		colorService.list = function(){
+			var d = $q.defer();
+			$http({
+				method:'get',
+				url:baseUrl+'/color/list'
+			}).then(function(succ){
+				d.resolve(succ.data);
+			},function(error){
+				d.reject(error);
+			});
+			return d.promise;
+		} 
+		
+		//添加颜色
+		colorService.addColor = function(name){
+			var d = $q.defer();
+			$http({
+				method:'post',
+				url:baseUrl+'/color/save',
+				data:{
+					c_name:name
+				},
+				headers: {
+      				'Content-Type': 'application/x-www-form-urlencoded'
+    			}
+			}).then(function(succ){
+				d.resolve(succ.data);
+			},function(error){
+				d.reject(error);
+			});
+			return d.promise;
+		}
+		
+		//修改颜色
+		colorService.editColor = function(id,name){
+			var d = $q.defer();
+			$http({
+				method:'put',
+				url:baseUrl+'/color/update',
+				params:{
+					c_id:id,
+					c_name:name
+				},
+				headers: {
+      				'Content-Type': 'application/x-www-form-urlencoded'
+    			}
+			}).then(function(succ){
+				d.resolve(succ.data);
+			},function(error){
+				d.reject(error);
+			});
+			return d.promise;
+		}
+		
+		//删除颜色
+		colorService.delColor = function(id) {
+			var d = $q.defer();
+			$http({
+				method:'delete',
+				url:baseUrl+'/color/delete/' + id,
+			}).then(function(succ){
+				d.resolve(succ.data);
+			},function(error){
+				d.reject(error);
+			});
+			return d.promise;
+		}
+		
+		return colorService;
+	});
+});

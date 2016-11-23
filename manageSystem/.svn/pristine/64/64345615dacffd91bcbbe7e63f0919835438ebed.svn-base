@@ -1,0 +1,237 @@
+<div class="alert alert-info" role="alert">商品管理</div>
+<div class="panel panel-default">
+  	<div class="panel-heading">
+  		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="gAdd()">新增</button>
+  		<form class="navbar-form navbar-left right" role="search" name="searchForm">
+		  	<div class="form-group">
+		    	<input type="text" class="form-control" placeholder="Search" name="searchText" ng-model="list.searchText">
+		  	</div>
+		  	<button type="submit" class="btn btn-default" ng-blur="searchT()">搜索</button>
+		</form>
+  	</div>
+	<table class="table">
+		<thead>
+			<td>商品ID</td>
+			<td>商品名称</td>
+			<td>商品类型</td>
+			<td>商品数量</td>
+			<td>商品价钱</td>
+			<td>商品颜色</td>
+			<td>商品尺寸</td>
+			<td>操作</td>
+		</thead>
+		<tbody>
+			<tr ng-repeat='goods in goodsList track by goods.m_id'>
+				<td>{{goods.m_id}}</td>
+				<td>{{goods.m_name}}</td>
+				<td>{{goods.m_type}}</td>
+				<td>{{goods.m_number}}</td>
+				<td>{{goods.m_price}}</td>
+				<td>{{goods.m_color}}</td>
+				<td>{{goods.m_size}}</td>
+				<td>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal" ng-click="gEdit(goods)">修改</button>
+					<span class="btn btn-danger" ng-click="gDelete(goods.m_id)">删除</span>
+		  		</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+	   <uib-pagination boundary-links='true' ng-change="selectPage()" next-text='下页'  previous-text='上页' total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></uib-pagination>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增商品</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form role="form" name="addForm">
+		  	<div class="form-group">
+		    	<label for="gName">商品名称</label>
+		    	<input type="text" ng-model="lists.m_name" ng-required="true" ng-maxlength="20" class="form-control" id="gName" placeholder="请输入商品名称" name="gName">
+		    	<div ng-if="addForm.gName.$invalid&&addForm.gName.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gName.$error.required">商品名称不能为空</p>
+		    		<p ng-show="addForm.gName.$error.maxlength">商品名称最大长度20</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gTitle">商品标题</label>
+		    	<input type="text" ng-model="lists.m_title" ng-required="true" ng-maxlength="10" class="form-control" id="gTitle" placeholder="请输入商品标题" name="gTitle">
+		  		<div ng-if="addForm.gTitle.$invalid&&addForm.gTitle.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gTitle.$error.required">商品标题不能为空</p>
+		    		<p ng-show="addForm.gTitle.$error.maxlength">商品标题最大长度10</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gCon">商品内容</label>
+		    	<input type="text" ng-model="lists.m_content" ng-required="true" ng-maxlength="50" class="form-control" id="gCon" placeholder="请输入商品说明" name="gCon">
+		  		<div ng-if="addForm.gCon.$invalid&&addForm.gCon.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gCon.$error.required">商品内容不能为空</p>
+		    		<p ng-show="addForm.gCon.$error.maxlength">商品内容最大长度50</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gDet">商品说明</label>
+		    	<input type="text" ng-model="lists.m_detail" ng-required="true" ng-maxlength="50" class="form-control" id="gDet" placeholder="请输入商品说明" name="gDet">
+		  		<div ng-if="addForm.gDet.$invalid&&addForm.gDet.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gDet.$error.required">商品说明不能为空</p>
+		    		<p ng-show="addForm.gDet.$error.maxlength">商品说明最大长度50</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gNum">商品数量</label>
+		    	<input type="number" class="form-control" ng-model="lists.m_number" ng-required="true" id="gNum" placeholder="请输入商品数量" name="gNum">
+		  		<div ng-if="addForm.gNum.$invalid&&addForm.gNum.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gNum.$error.required">商品数量不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gPrice">商品价钱</label>
+		    	<input type="number" class="form-control" ng-model="lists.m_price" ng-required="true" id="gPrice" placeholder="请输入商品数量" name="gPrice">
+		  		<div ng-if="addForm.gPrice.$invalid&&addForm.gPrice.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gPrice.$error.required">商品价钱不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gType">商品类型</label>
+		    	<select class="form-control" id="gType" name="gType" ng-required="true" ng-model="lists.type">
+		    		<option ng-repeat="t in type track by $index" >{{t.t_name}}</option>
+		    	</select>
+		    	<div ng-if="addForm.gType.$invalid&&addForm.gType.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gType.$error.required">商品类型不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gColor">商品颜色</label>
+		    	<select class="form-control" id="gColor" name="gColor" ng-model="lists.color">
+		    		<option ng-repeat="c in color track by $index" >{{c.c_name}}</option>
+		    	</select>
+		    	<div ng-if="addForm.gColor.$invalid&&addForm.gColor.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gColor.$error.required">商品颜色不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gSize">商品尺寸</label>
+		    	<select class="form-control" id="gSize" name="gSize" ng-model="lists.size">
+		    		<option ng-repeat="s in size track by $index">{{s.s_name}}</option>
+		    	</select>
+		    	<div ng-if="addForm.gSize.$invalid&&addForm.gSize.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="addForm.gSize.$error.required">商品尺寸不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="exampleInputPassword1">商品照片</label>
+		    	<input type="file" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  	</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="gClose()">关闭</button>
+        <button type="button" class="btn btn-primary" ng-click="gSave()">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改商品</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form role="form" name="editForm">
+		  	<div class="form-group">
+		    	<label for="gName">商品名称</label>
+		    	<input type="text" ng-model="m_name" ng-required="true" ng-maxlength="20" class="form-control" id="gName" placeholder="请输入商品名称" name="gName">
+		    	<div ng-if="editForm.gName.$invalid&&editForm.gName.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gName.$error.required">商品名称不能为空</p>
+		    		<p ng-show="editForm.gName.$error.maxlength">商品名称最大长度20</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gTitle">商品标题</label>
+		    	<input type="text" ng-model="m_title" ng-required="true" ng-maxlength="10" class="form-control" id="gTitle" placeholder="请输入商品标题" name="gTitle">
+		  		<div ng-if="editForm.gTitle.$invalid&&editForm.gTitle.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gTitle.$error.required">商品标题不能为空</p>
+		    		<p ng-show="editForm.gTitle.$error.maxlength">商品标题最大长度10</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gCon">商品内容</label>
+		    	<input type="text" ng-model="m_content" ng-required="true" ng-maxlength="50" class="form-control" id="gCon" placeholder="请输入商品说明" name="gCon">
+		  		<div ng-if="editForm.gCon.$invalid&&editForm.gCon.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gCon.$error.required">商品内容不能为空</p>
+		    		<p ng-show="editForm.gCon.$error.maxlength">商品内容最大长度50</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gDet">商品说明</label>
+		    	<input type="text" ng-model="m_detail" ng-required="true" ng-maxlength="50" class="form-control" id="gDet" placeholder="请输入商品说明" name="gDet">
+		  		<div ng-if="editForm.gDet.$invalid&&editForm.gDet.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gDet.$error.required">商品说明不能为空</p>
+		    		<p ng-show="editForm.gDet.$error.maxlength">商品说明最大长度50</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gNum">商品数量</label>
+		    	<input type="number" class="form-control" ng-model="m_number" ng-required="true" id="gNum" placeholder="请输入商品数量" name="gNum">
+		  		<div ng-if="editForm.gNum.$invalid&&editForm.gNum.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gNum.$error.required">商品数量不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gPrice">商品价钱</label>
+		    	<input type="text" class="form-control" ng-model="m_price" ng-required="true" id="gPrice" placeholder="请输入商品单价" name="gPrice">
+		  		<div ng-if="editForm.gPrice.$invalid&&editForm.gPrice.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gPrice.$error.required">商品价钱不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gType">商品类型</label>
+		    	<select class="form-control" id="gType" name="gType" ng-required="true" ng-model="m_type">
+		    		<option ng-repeat="t in type track by $index" ng-value="t.t_id">{{t.t_name}}</option>
+		    	</select>
+		    	<div ng-if="editForm.gType.$invalid&&editForm.gType.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gType.$error.required">商品类型不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gColor">商品颜色</label>
+		    	<select class="form-control" id="gColor" name="gColor" ng-model="m_color">
+		    		<option ng-repeat="c in color track by $index" ng-value="c.c_id">{{c.c_name}}</option>
+		    	</select>
+		    	<div ng-if="editForm.gColor.$invalid&&editForm.gColor.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gColor.$error.required">商品颜色不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="gSize">商品尺寸</label>
+		    	<select class="form-control" id="gSize" name="gSize" ng-model="m_size">
+		    		<option ng-repeat="s in size track by $index" ng-value="s.s_id">{{s.s_name}}</option>
+		    	</select>
+		    	<div ng-if="editForm.gSize.$invalid&&editForm.gSize.$dirty" class="alert alert-danger tip" role="alert">
+		    		<p ng-show="editForm.gSize.$error.required">商品尺寸不能为空</p>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="exampleInputPassword1">商品照片</label>
+		    	<input type="file" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  	</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="gClose()">关闭</button>
+        <button type="button" class="btn btn-primary" ng-click="gUpdate(editGoodDetail.m_id)">修改</button>
+      </div>
+    </div>
+  </div>
+</div>

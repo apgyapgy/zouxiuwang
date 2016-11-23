@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>映射</title>
+		<script type="text/javascript">
+			var mapping = {
+				color:{
+					id:"c_id",
+					name:"c_name"
+				}
+			}
+			//将后台返回的数据转化为前台自定义的格式
+			function dataToWeb(data,mapping){
+				if(Array.isArray(data)){
+					var arr = [];
+					for(var i = 0;i<data.length;i++){
+						var obj = {};
+						for(var key in mapping){
+							var val = mapping[key];
+							obj[key] = data[i][val];
+						}
+						arr.push(obj);
+					}
+					return arr;
+				}else{
+					var obj = {};
+					for(var key in mapping){
+						var val = mapping[key];
+						obj[key] = data[val]; 
+					}
+					return obj;
+				}
+			}
+			//将前后的格式转化为后台编写的格式
+			function webToData(data,mapping){
+				if(Array.isArray(data)){
+					var arr = [];
+					for(var i=0;i<data.length;i++){
+						var config = {};
+						for(var key in mapping){
+							var val = mapping[key];
+							config[val] = data[key];
+						}
+						arr.push(config);
+					}
+					return arr;
+				}else{
+					var config = {};
+					for(var key in mapping){
+						var val = mapping[key];
+						config[val] = data[key];
+					}
+					return config;
+				}
+			}
+			
+			var d1 = {c_id:"002",c_name:"红色"};
+			var d2 = [{c_id:"002",c_name:'红色'},{c_id:"003",c_name:'绿色'}];
+			console.log(dataToWeb(d1,mapping.color));
+			console.log(dataToWeb(d2,mapping.color));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

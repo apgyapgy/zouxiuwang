@@ -1,0 +1,10 @@
+*{
+	padding:0;
+	margin:0;
+}
+.right{
+	float:right!important;
+}
+.tip{
+	padding:5px 15px;
+}

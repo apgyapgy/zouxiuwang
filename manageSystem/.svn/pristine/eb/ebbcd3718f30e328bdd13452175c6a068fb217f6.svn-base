@@ -1,0 +1,24 @@
+<div class="alert alert-info" role="alert">商品管理</div>
+<table class="table">
+	<thead>
+		<td>商品ID</td>
+		<td>商品名称</td>
+		<td>商品类型</td>
+		<td>商品数量</td>
+		<td>商品价钱</td>
+		<td>操作</td>
+	</thead>
+	<tbody>
+		<!--<tr ng-repeat='user in lists track by user.u_id'>
+			<td>{{$index}}</td>
+			<td>{{user.u_name}}</td>
+			<td>
+	  			<button type="button" class="btn btn-primary" >修改</button>
+				<span class="btn btn-danger">删除</span>
+	  		</td>
+		</tr>-->
+	</tbody>
+</table>
+<div>
+   <uib-pagination boundary-links='true' ng-change="selectPage()" next-text='下页'  previous-text='上页' total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></uib-pagination>
+</div>

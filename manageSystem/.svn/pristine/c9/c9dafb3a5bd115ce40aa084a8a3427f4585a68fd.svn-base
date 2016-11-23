@@ -1,0 +1,8 @@
+<div class='row'>
+	<div class='col-md-2'>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat='o in leftRoute' ui-sref={{o.state}} ui-sref-active="active">{{o.text}}</li>
+		</ul>
+	</div>
+	<div class='col-md-10' ui-view='right'></div>
+</div>

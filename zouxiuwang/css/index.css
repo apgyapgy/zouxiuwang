@@ -1,0 +1,155 @@
+.index_head {
+  height: 1.34375rem;
+  background: #E4366B;
+  text-align: center;
+  font-size: 0.625rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; }
+  .index_head span {
+    display: inline-block; }
+  .index_head .zh {
+    font: bold 0.625rem/1.34375rem "";
+    width: 2.65625rem;
+    height: 1.34375rem; }
+
+.index_nav {
+  background: #52525A;
+  border-top: 1px solid #282828;
+  border-bottom: 1px solid #282828;
+  text-align: center;
+  width: 100%;
+  height: 1.34375rem;
+  position: fixed;
+  top: 1.34375rem;
+  left: 0;
+  z-index: 5; }
+  .index_nav:before, .index_nav:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #636363; }
+  .index_nav input {
+    width: 9.21875rem;
+    height: 0.78125rem;
+    background: #fff url(../imgs/search.png) no-repeat 0.375rem center;
+    background-size: 0.5625rem 0.625rem;
+    padding: 0 0.375rem;
+    text-indent: 0.75rem;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0.39063rem;
+    vertical-align: middle;
+    font: 0.375rem/0.78125rem "";
+    color: #949398; }
+  .index_nav span {
+    position: absolute;
+    width: 0.5625rem;
+    height: 0.625rem;
+    left: 0.78125rem;
+    top: 0.375rem; }
+
+.index_banner {
+  margin-top: 2.6875rem;
+  height: 3.90625rem;
+  overflow: hidden; }
+  .index_banner img {
+    width: 100%;
+    height: 3.90625rem;
+    display: block; }
+  .index_banner .swiper-pagination-bullet-active {
+    background: #D30F11; }
+
+.margin_bottom {
+  height: 1.53125rem;
+  width: 100%; }
+
+.index_main {
+  height: 15.625rem;
+  margin-bottom: 1.53125rem; }
+  .index_main ul {
+    background: #fff; }
+    .index_main ul li {
+      height: 3.4375rem;
+      border-bottom: 1px solid #707070; }
+      .index_main ul li:after {
+        content: "";
+        height: 1px;
+        width: 100%;
+        display: block;
+        background: #ABABAB; }
+      .index_main ul li img {
+        float: left;
+        width: 2.6875rem;
+        height: 2.6875rem;
+        border: 0.01563rem solid #C8C8C8;
+        margin: 0.3125rem 0 0 0.5rem; }
+      .index_main ul li div.item {
+        float: left;
+        width: 6.25rem;
+        margin-left: 0.23438rem;
+        height: 100%; }
+        .index_main ul li div.item a {
+          font: 0.4375rem/0.6875rem "";
+          display: block;
+          width: 100%;
+          height: 0.6875rem;
+          margin-top: 0.39063rem;
+          color: #000; }
+        .index_main ul li div.item .item_bottom {
+          width: 100%;
+          height: 1.3125rem;
+          margin-top: 0.0625rem;
+          position: relative; }
+          .index_main ul li div.item .item_bottom span {
+            display: inline-block; }
+          .index_main ul li div.item .item_bottom .now {
+            font: 0.46875rem/0.6875rem "";
+            color: #F32975;
+            margin-right: 0.3125rem; }
+          .index_main ul li div.item .item_bottom .old {
+            font-size: 0.3125rem;
+            color: #BCBABB;
+            text-decoration: line-through; }
+          .index_main ul li div.item .item_bottom .zhe {
+            display: block;
+            height: 0.59375rem;
+            font: 0.375rem/0.59375rem "";
+            color: #000; }
+          .index_main ul li div.item .item_bottom .add {
+            position: absolute;
+            width: 1.84375rem;
+            height: 0.8125rem;
+            background: url(../imgs/cart.jpg);
+            background-size: 1.84375rem 0.8125rem;
+            right: 0.26563rem;
+            top: 0.96875rem;
+            border-radius: 0.15625rem; }
+      .index_main ul li#lastDemo {
+        height: 0.625rem;
+        font: 0.3125rem/0.625rem "";
+        color: #666; }
+        .index_main ul li#lastDemo img {
+          width: 0.46875rem;
+          height: 0.46875rem;
+          display: inline;
+          margin-top: 0.07813rem; }
+
+p.addSuccess {
+  width: 7.8125rem;
+  height: 0.625rem;
+  background: #E4366B;
+  color: #fff;
+  position: fixed;
+  top: 10.9375rem;
+  left: 50%;
+  margin-left: -3.90625rem;
+  font: 0.46875rem/0.625rem "";
+  opacity: 0.8;
+  display: none; }
+
+/*# sourceMappingURL=index.css.map */

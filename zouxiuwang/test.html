@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{
+				width:200px;
+				height:200px;
+			}
+		</style>
+		<script type="text/javascript" src="js/plugins/zepto.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#jiazai").click(function(){
+//					var str = encodeURI("韩都衣舍长袖衬衫");
+//					$.ajax({
+//						type:'get',
+//						url:'http://datainfo.duapp.com/shopdata/selectGoodes.php?selectText='+str+'&callback=?',
+//						dataType:'json',
+//						success:function(goodList){
+////							for(var key in goodList){
+////								console.log(goodList[key]["goodsName"]);
+////								console.log(goodList[key]["goodsListImg"]);
+////								console.log(goodList[key]["price"]);
+////								console.log(goodList[key]["discount"]);
+////							}
+//							
+//							console.log(goodList);
+//						}
+//					});
+
+					//清空购物车中的数据 
+					$.ajax({
+						type:'get',
+						url:'http://datainfo.duapp.com/shopdata/getCar.php?userID=txy&callback=?',
+						success:function(data){
+							console.log(data);
+//							for(var i=0;i<data.length;i++){
+//								var goodId = data[i]['goodsID'];
+//								$.ajax({
+//									type:'get',
+//									url:'http://datainfo.duapp.com/shopdata/updatecar.php?userID=txy&goodsID='+goodId+'&number=0',
+//									success:function(e){
+//										console.log(e);
+//									}
+//								})
+//							}
+						}
+					});
+					
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" value="加载" id="jiazai"/>
+	</body>
+</html>

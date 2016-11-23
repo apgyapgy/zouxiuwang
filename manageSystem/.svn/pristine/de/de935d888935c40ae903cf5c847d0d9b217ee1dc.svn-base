@@ -1,0 +1,30 @@
+define(['main','js/service/goodsService.js'],function(app){
+	
+	app.controller('goodsCtrl',function($scope,goodsService){
+		var lparams = {
+			pageIndex:0,
+			pageSize:10,
+			m_name:""
+		}
+		$scope.getLists = function(i){
+			i = i || 0;
+			lparams.pageIndex = i;
+			goodsService.list(lparams).then(function(succ){
+				$scope.goodsList = succ.data;
+				$scope.bigTotalItems = succ.count;
+			});
+		}
+		$scope.setpage = function(pageNo){
+			$scope.currentPage = pageNo;
+		}
+		$scope.pageChanged = function(){
+			
+		}
+		$scope.selectPage = function(){
+			$scope.getList($scope.bigCurrentPage-1);
+		}
+		$scope.maxSize = 6;
+		$scope.bigCurrentPage = 1;
+		$scope.getLists();
+	});
+});

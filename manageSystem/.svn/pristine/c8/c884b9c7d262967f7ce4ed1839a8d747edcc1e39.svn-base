@@ -1,0 +1,4 @@
+define(['main','js/service/goodsService.js'],function(app){
+	app.controller('goodsCtrl',function($scope,userService){
+	});
+});

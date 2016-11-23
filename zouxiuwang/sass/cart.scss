@@ -1,0 +1,182 @@
+$baseWidth:640;
+@function px($val){
+    @return $val/$baseWidth*10+rem;
+}
+.cart_head{
+    height:px(86);
+    background:#E4366B;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    border-bottom:1px solid #636363;
+    display:flex;
+    z-index:6;
+    &:after{
+        content:"";
+        width:100%;
+        height:1px;
+        background:#282828;
+        display:block;
+        position:absolute;
+        left:0;
+        bottom:0;
+    }
+    .back{
+        width:px(72);
+        text-align:right;
+        height:px(86);
+        display:block;
+        position:absolute;
+        background:url(../imgs/back.png) no-repeat px(20) center;
+        background-size:px(52) px(32);
+    }
+    .login{
+        width:100%;
+        text-align:center;
+        font:bold px(38)/px(86) "";
+        color:#fff;
+        height:px(86);
+    }
+    .register{
+        width:px(110);
+        height:px(54);
+        font:px(24)/px(54) "";
+        color:#fff;
+        text-align:center;
+        background:#EC4175;
+        position:absolute;
+        right:px(20);
+        top:px(14);
+        display:block;
+        box-shadow:0 -1px 1px #fff,0 1px 1px #fff,1px 0px 1px #E03569;
+        border-radius:px(10);
+    }
+}
+.cart_foot{
+    
+}
+.margin-top{
+    height:px(86);
+    width:100%;
+}
+.cart_main{
+    margin-top:px(86);
+    .cart_load{
+        width:px(200);
+        height:auto;
+        display:block;
+        margin:px(300) auto 0;
+    }
+    .cart_empty{
+        width:100%;
+        display:none;
+        p{
+            margin-top:px(38);
+            text-align:center;
+            font:px(36)/px(80) "";
+            color:#3E3E3E;
+        }
+        img{
+            width:px(262);
+            height:px(262);
+            margin:0 auto;
+            display:block;
+        }
+        span{
+            display:block;
+            width:px(420);
+            height:px(90);
+            border-top:1px solid #BBBBBB;
+            margin:px(70) auto 0;
+            text-align:center;
+            font:bold px(48)/px(90) "";
+            color:#fff;
+            background-image:linear-gradient(to top,#D7114F,#F9628B);
+        }
+    }
+    .cartGoods{
+        width:100%;
+        display:none;
+        position:relative;
+        p.top{
+            height:px(88);
+            background:#333;
+            font:px(30)/px(88) "";
+            color:#fff;
+            text-indent:px(14);
+            .totalNum{
+                margin-right:px(20);
+            }
+            .totalMoney{
+                color:#E43669;
+            }
+        }
+        #list{
+            width:100%;
+            height:px(850);
+//          position:absolute;
+//          top:px(88);
+//          left:0;
+            .lis{
+                width:100%;
+                height:auto;
+                li{
+                    height:px(229);
+                    width:100%;
+                    border-bottom:1px solid #CBCBCB;
+                    img{
+                        width:px(172);
+                        height:px(172);
+                        border:1px solid #BABABA;
+                        margin:px(28) px(26) 0 px(33);
+                        float:left;
+                    }
+                    .cartGoodRight{
+                        margin-top:px(28);
+                        float:left;
+                        width:px(400);
+                        p{
+                            width:100%;
+                            color:#333333;
+                            font:px(30)/px(40) "";
+                        }
+                        p.goodName{
+                            span{
+                                float:right;
+                                width:px(26);
+                                height:px(34);
+                                background:url(../imgs/recyclebin.png) no-repeat;
+                                background-size:px(26) px(34);
+                                margin:px(7) px(25) 0 0;
+                            }
+                        }
+                        p.goodPrice{
+                            span{
+                                color:#E3366B;
+                            }
+                        }
+                        p.goodNum{
+                            span.minu,span.plus{
+                                width:px(57);
+                                height:px(40);
+                                background:#878787;
+                                color:#fff;
+                                text-align:center;
+                                display:inline-block;
+                                border-radius:5px;
+                            }
+                            input{
+                                width:px(74);
+                                height:px(40);
+                                font:px(28)/px(40) "";
+                                text-indent:px(30);
+                                margin:0 px(10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+$baseWidth:640;
+@function px($val){
+    @return $val/$baseWidth*10+rem;
+}
+.show_head{
+    height:px(86);
+    background:#E4366B;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    border-bottom:1px solid #636363;
+    display:flex;
+    &:after{
+        content:"";
+        width:100%;
+        height:1px;
+        background:#282828;
+        display:block;
+        position:absolute;
+        left:0;
+        bottom:0;
+    }
+    .back{
+        width:px(71);
+        height:px(86);
+        display:block;
+        position:absolute;
+        background:url(../imgs/back.png) no-repeat px(20) center;
+        background-size:px(52) px(32);
+    }
+    .my{
+        width:100%;
+        text-align:center;
+        font:bold px(38)/px(86) "";
+        color:#fff;
+        height:px(86);
+    }
+}
+.show_main{
+    width:100%;
+    height:auto;
+    margin-top:px(88);
+    .userInfo{
+        padding-top:px(62);
+        margin-bottom:px(84);
+        height:px(166);
+        width:100%;
+        img{
+            width:px(166);
+            height:px(166);
+            border-radius:px(20);
+            margin-left:px(34);
+            float:left;
+        }
+        .info_right{
+            width:px(330);
+            height:100%;
+            margin-left:px(30);
+            float:left;
+            p.niciname{
+                height:px(98);
+                width:100%;
+                font:bold px(34)/px(98) "";
+                color:#000;
+            }
+            p.opeations{
+                height:px(68);
+                padding-top:px(8);
+                box-sizing:border-box;
+                span{
+                    display:block;
+                    float:left;
+                    height:px(52);
+                    width:px(110);
+                    font:bold px(24)/px(52) "";
+                    text-align:center;
+                    color:#fff;
+                    background-image:linear-gradient(to top,#DC1C58,#F8618C);
+                    box-shadow:0 -1px 2px #BBBBBB;
+                    margin-right:px(44);
+                    border-radius:px(10);
+                }
+            }
+        }
+    }
+    .menuList{
+        width:px(555);
+        border:px(2) solid #DEDEDE;
+        margin:px(20) auto 0;
+        border-radius:px(20);
+        overflow:hidden;
+        p{
+            width:px(555);
+            height:px(88);
+            font:bold px(36)/px(88) "";
+            color:#000;
+            text-indent:px(28);
+            border-bottom:px(2) solid #DEDEDE;
+            background:#fff;
+            &:last-child{
+                border:0;
+            }
+            img{
+                width:px(24);
+                height:px(28);
+                float:right;
+                margin:px(32) px(26) 0 0;
+            }
+        }
+    }
+}

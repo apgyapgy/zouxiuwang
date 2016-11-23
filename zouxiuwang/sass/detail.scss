@@ -1,0 +1,200 @@
+$baseWidth:640;
+@function px($val){
+    @return $val/$baseWidth*10+rem;
+}
+*{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+body{
+    background:#F7F7F7;
+}
+a{
+    text-decoration:none;
+}
+.detail_head{
+    height:px(86);
+    background:#E4366B;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    border-bottom:1px solid #636363;
+    display:flex;
+    &:after{
+        content:"";
+        width:100%;
+        height:1px;
+        background:#282828;
+        display:block;
+        position:absolute;
+        left:0;
+        bottom:0;
+    }
+    .back{
+        width:px(72);
+        text-align:right;
+        height:px(86);
+        display:block;
+        position:absolute;
+        background:url(../imgs/back.png) no-repeat px(20) center;
+        background-size:px(52) px(32);
+    }
+    .login{
+        width:100%;
+        text-align:center;
+        font:bold px(38)/px(86) "";
+        color:#fff;
+        height:px(86);
+    }
+    .register{
+        width:px(110);
+        height:px(54);
+        font:px(24)/px(54) "";
+        color:#fff;
+        text-align:center;
+        background:#EC4175;
+        position:absolute;
+        right:px(20);
+        top:px(14);
+        display:block;
+        box-shadow:0 -1px 1px #fff,0 1px 1px #fff,1px 0px 1px #E03569;
+        border-radius:px(10);
+    }
+}
+.detail_foot{
+    width:100%;
+    height:px(97);
+    position:fixed;
+    left:0;bottom:0;
+    display:flex;
+    background:#5C5B61 url(../imgs/detail_back1.png) repeat-x left top;
+    box-sizing: border-box;
+    &:before{
+        content:"";
+        width:100%;
+        height:1px;
+        background:#636363;
+        display:block;
+        position:absolute;
+        top:1px;
+        left:0;
+        z-index:2;
+    }
+    p{
+        padding-top:5px;
+        z-index:5;
+        width:100%;
+        height:px(93);
+        text-align:center;
+        font:px(36)/px(93) "";
+        color:#fff;
+        &.active{
+            border-top:5px solid #E4366B;
+            padding-top:0;
+        }
+    }
+}
+.detail_main{
+    width:100%;
+    margin:px(86) 0 px(97) 0;
+    .detail_introduce{
+        display:block;
+        p.time{
+            height:px(86);
+            width:100%;
+            background:#333333;
+            color:#fff;
+            font:bold px(30)/px(86) "";
+            text-indent:px(32);
+        }
+        img{
+            width:px(437);
+            height:px(367);
+            border:1px solid #ACACAC;
+            margin:px(30) auto px(50);
+            display:block;
+        }
+        p.now{
+            width:px(505);
+            height:px(82);
+            margin-left:px(45);
+            font:px(34)/px(82) "";
+            color:#fff;
+            background:url(../imgs/detail_nowp.png) no-repeat;
+            background-size:px(505) px(82);
+            padding-left:px(80);
+            box-sizing: border-box;
+            span.goodName{
+                width:px(300);
+                float:left;
+                overflow:hidden;
+                white-space:nowrap;
+            }
+            span.price{
+                width:px(100);
+                float:left;
+            }
+        }
+        p.other_info{
+            height:px(90);
+            width:px(505);
+            font:px(24)/px(90) "";
+            color:#444444;
+            text-indent:px(60);
+            .oldPrice{
+                text-decoration:line-through;
+                margin-right:px(30);
+            }
+            .buyers{
+                float:right;
+            }
+        }
+    }
+    .detail_information{
+        display:none;
+        width:100%;
+        img{
+            width:100%;
+            height:px(324);
+        }
+        .all_information{
+            width:100%;
+            padding:0 px(60) 0 px(20); 
+            box-sizing:border-box;
+            p{
+                font:px(24)/px(38) "";
+                color:#585858;
+                width:px(580);
+                margin-top:px(20);
+                .originPlace,.brand{
+                    margin-right:px(40);
+                }
+            }
+        }
+        
+    }
+    .detail_realShot{
+        width:100%;
+        height:px(730);
+        display:none;
+        .swiper{
+            width:100%;
+            height:px(730);
+            img{
+                width:100%;
+                height:px(730);
+            }
+            .swiper-pagination-bullet{
+                width:px(22);
+                height:px(22);
+                background:#fff;
+                opacity:1;
+            }
+            .swiper-pagination-bullet-active{
+                background:#E4366B;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.list_head {
+  height: 1.34375rem;
+  background: #E4366B;
+  text-align: center;
+  font-size: 0.625rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  z-index: 5; }
+  .list_head span {
+    display: inline-block; }
+  .list_head .en {
+    width: 1.5rem;
+    height: 0.4375rem;
+    background: url(../imgs/logo.png) no-repeat;
+    background-size: 1.5rem 0.4375rem;
+    margin-top: 0.53125rem; }
+  .list_head .zh {
+    font: bold 0.625rem/1.34375rem "";
+    width: 2.65625rem;
+    height: 1.34375rem; }
+  .list_head .back {
+    width: 1.125rem;
+    text-align: right;
+    height: 1.34375rem;
+    display: block;
+    position: absolute;
+    background: url(../imgs/back.png) no-repeat 0.3125rem center;
+    background-size: 0.8125rem 0.5rem; }
+
+.list_nav {
+  height: 1.34375rem;
+  width: 100%;
+  background: #52525A;
+  border-top: 1px solid #282828;
+  border-bottom: 1px solid #282828;
+  text-align: center;
+  margin-top: 1.34375rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5; }
+  .list_nav:before, .list_nav:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #636363; }
+  .list_nav input {
+    width: 9.21875rem;
+    height: 0.78125rem;
+    background: #fff url(../imgs/search.png) no-repeat 0.375rem center;
+    background-size: 0.5625rem 0.625rem;
+    padding: 0 0.375rem;
+    text-indent: 0.75rem;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0.39063rem;
+    vertical-align: middle;
+    font: 0.375rem/0.78125rem "";
+    color: #949398; }
+  .list_nav span {
+    position: absolute;
+    width: 0.5625rem;
+    height: 0.625rem;
+    left: 0.78125rem;
+    top: 0.375rem; }
+
+.list_main {
+  color: #000;
+  font: bold 0.59375rem/1.34375rem "";
+  margin-top: 2.75rem; }
+  .list_main p.parent {
+    text-indent: 0.3125rem;
+    box-shadow: 0 1px 1px #AAAAAA,0 1px 1px #CBCBCB; }
+  .list_main img {
+    float: right;
+    width: 0.4375rem;
+    height: 0.35938rem;
+    margin-right: 0.46875rem;
+    margin-top: 0.5625rem; }
+  .list_main ul.type {
+    overflow: hidden; }
+    .list_main ul.type li {
+      width: 100%;
+      height: 1.34375rem;
+      text-indent: 0.625rem;
+      box-shadow: 0 1px 1px #AAAAAA,0 1px 1px #CBCBCB; }
+      .list_main ul.type li img {
+        transform: rotate(-90deg); }
+    .list_main ul.type.active {
+      height: 0rem; }
+
+/*# sourceMappingURL=list.css.map */

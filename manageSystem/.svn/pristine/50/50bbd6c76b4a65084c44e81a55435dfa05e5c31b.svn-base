@@ -1,0 +1,67 @@
+<div class="alert alert-info" role="alert">尺寸管理</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary btn-lg" ng-click="addSize()">添加</button>
+</div>
+<table class="table">
+	<thead>
+		<td>尺寸ID</td>
+		<td>尺寸名称</td>
+		<td>尺寸内容</td>
+		<td>操作</td>
+	</thead>
+	<tbody>
+		<tr ng-repeat='o in sizelist'>
+			<td>{{o.s_id}}</td>
+			<td>{{o.s_name}}</td>
+			<td>{{o.s_content}}</td>
+			<td>
+	  		<button type="button" class="btn btn-primary" ng-click='editSize(o.s_id)'>修改</button>
+	  	  <button type="button" class="btn btn-danger" ng-click='delSize(o.s_id)'>删除</button>
+	  	</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="dialog_title">添加尺寸</h4>
+     	</div>
+    	<div class="modal-body" id="sizeForm">
+    		<form class="form-horizontal" role="form" name='sizeForm'>
+	        <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">尺寸名称:</label>
+				    <div class="col-sm-10">
+				      <input type="text" id='sizeName' class="form-control" name='sizeName' ng-model='size.name' ng-required='true' ng-maxlength='5' placeholder="size name">
+					    <div g-if='(sizeForm.sizeName.$invalid&&sizeForm.sizeName.$dirty) || state '>
+					    	<span class="help-block" ng-if='sizeForm.sizeName.$error.required'>商品尺寸不能为空</span>
+					      <span class="help-block" ng-if='sizeForm.sizeName.$error.maxlength'>长度不能超过5</span>
+					    </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">尺寸内容:</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name='sizeContent' id='sizeContent' ng-model='size.Content' ng-required='true' ng-maxlength='5' placeholder="size content">
+				    	<div g-if='(sizeForm.sizeContent.$invalid&&sizeForm.sizeContent.$dirty) || state '>
+					    	<span class="help-block" ng-if='sizeForm.sizeContent.$error.required'>商品内容不能为空</span>
+					      <span class="help-block" ng-if='sizeForm.sizeContent.$error.maxlength'>长度不能超过5</span>
+					    </div>
+				    </div>
+				  </div> 
+			  </form>
+      </div>
+    	<div class="modal-footer">
+    		<button type="button" class="btn btn-primary ok">保存</button>
+        <button type="button" class="btn btn-default cancel">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

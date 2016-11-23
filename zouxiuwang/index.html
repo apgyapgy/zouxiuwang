@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,width=device-width,user-scalable=no,maximum-scale=1,minimum-scale=1" />
+		<title>衣衣不舍</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" href="css/more.css" />
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.body.parentElement.style.fontSize = window.innerWidth/10+'px';
+		</script>
+		<section id="views"></section>
+		<footer class="foot">
+			<nav>
+				<div class="active">
+					<a href="#home">
+						<span class="iconfont">&#xe614;</span>
+						<p>首页</p>
+					</a>
+				</div>
+				<div>
+					<a href="#class">
+						<span class="iconfont">&#xe600;</span>
+						<p>分类</p>
+					</a>
+				</div>
+				<div>
+					<a href="#cart">
+						<span class="iconfont">&#xe653;</span>
+						<p>购物车</p>
+					</a>
+				</div>
+				<div>
+					<a href="#myshow">
+						<span class="iconfont">&#xe6a2;</span>
+						<p>我的</p>
+					</a>
+				</div>
+				<div>
+					<a href="#more">
+						<span class="iconfont">&#xe669;</span>
+						<p>更多</p>
+					</a>	
+				</div>
+			</nav>
+		</footer>
+		<script type="text/javascript" src="js/plugins/zepto.min.js"></script>
+		<script type="text/javascript" src="js/plugins/swiper.jquery.min.js"></script>
+		<script type="text/javascript" src="js/plugins/iscroll.js"></script>
+		<script type="text/javascript" src="js/plugins/vipspa.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			vipspa.start({
+				view:"#views",
+				router:{
+					'home':{
+						templateUrl:'views/index.html',
+						controller:'js/index.js'
+					},
+					'class':{
+						templateUrl:'views/list.html',
+						controller:'js/list.js'
+					},
+					'cart':{
+						templateUrl:'views/cart.html',
+						controller:'js/cart.js'
+					},
+					'myshow':{
+						templateUrl:'views/myshow.html',
+						controller:'js/myshow.js'
+					},
+					'more':{
+						templateUrl:'views/more.html',
+						controller:'js/more.js'
+					},
+					'defaults':'home'
+				}
+			});
+		</script>
+	</body>
+</html>
